@@ -3,7 +3,16 @@
 angular.module('myApp')
 
 .controller('matchController', function() {
-  console.log('matchController!');
+  
+   $scope.logOut = () => {
+    User.logout()
+        .then(res => {
+          console.log('res:', res);
+        })
+        .catch(err => {
+          console.log('err in logoutcontroller:', err);
+        })   
+  }
 
 
 });

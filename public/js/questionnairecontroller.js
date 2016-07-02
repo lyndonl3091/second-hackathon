@@ -2,7 +2,9 @@
 
 angular.module('myApp')
 
-.controller('questionnaireController', function($scope, User, $sessionStorage) {
+.controller('questionnaireController', function($scope, User, $sessionStorage, $state, $rootScope, $localStorage) {
+
+  $scope.storage = $localStorage
 
   console.log('sessionStorage', $sessionStorage.currentUser);
 
@@ -208,6 +210,9 @@ angular.module('myApp')
   }
 
   $scope.userSubmit = () => {
+    console.log('$sessionStorage.user', $sessionStorage.user);
+    $scope.storage.individuals.push($scope.user);
+    console.log('User.Individual:', User.Individual);
     User.add($sessionStorage.currentUser._id, $scope.user)
       .then(res => {
         console.log('res.data:', res.data);
@@ -216,6 +221,13 @@ angular.module('myApp')
         console.log('err:', err);
       })
     console.log('$scope.user', $scope.user)
+    $state.go('user');
+  }
+
+  $scope.removeQuestionnaire = () => {
+    $scope.currentUser = null;
+    $state.go('user');
+
   }
 
 

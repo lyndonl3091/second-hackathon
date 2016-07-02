@@ -1,7 +1,6 @@
 
 
 <div class="home" ng-controller='homeController'>
-<div class="beforeLogin" ng-if='!currentUser'>
   <h4>Welcome to lonely singles 101</h4>
   <div class="container">
     <div class="row">
@@ -15,12 +14,6 @@
               <label class="control-label" for="focusedInput">Password</label>
               <input class="form-control" id="focusedInput" type="password" placeholder="Password" ng-model='user.password'>
             </div>
-            <div class="form-group">
-              <label class="control-label" for="focusedInput">Gender</label>
-              <select class="form-control" id="select" ng-model='type.selected' ng-options='t as t for t in type.options'></select>
-            </div>
-
-
 
             <button type="button" class="btn btn-default" ng-click="removeProperty()">Cancel</button>  
             <button class="btn btn-success">Register now</button>   
@@ -28,6 +21,8 @@
           </form>
         </div>
       </div>
+
+  
 
       <div class="col-lg-6">
       <h4>Existing users:</h4>
@@ -47,10 +42,8 @@
     </div>
   </div>
   
-</div>
-  
-<div class="afterLogin" ng-if='currentUser'>
-</div>
+
+
 </div>
 
 

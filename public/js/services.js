@@ -30,14 +30,11 @@ angular.module('myApp')
 
   }
 
-  this.add = (id, user) => 
-  {
-    console.log('id in add', id);
-    $http.put(`/api/users/${id}`, user);
-  }
+  this.add = (id, user) => $http.put(`/api/users/${id}`, user);
 
+  this.logout = () => $http.post('/api/users/logout');
 
-
+  this.getId = userObj => $http.post('/api/users/loginnow');
 
 })
 

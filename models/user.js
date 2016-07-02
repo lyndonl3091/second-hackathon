@@ -34,13 +34,13 @@ let userSchema = new mongoose.Schema({
 
   let token = req.cookies.authtoken;
 
-  jwt.verify(token, secret, (err, payload) => {
+  jwt.verify(token, secret, function (err, payload)  {
     if(err) return res.status(401).send(err);
 
     this.findById(payload._id, (err, user) => {
       if(err || !user) return res.status(401).send(err || {error: 'User not found.'});
 
-      res.user = user;
+      req.user = user;
 
       next();
     }).select('-password');
@@ -63,7 +63,6 @@ userSchema.statics.register = function(userObj, cb) {
 };
 
 
-
 userSchema.statics.authenticate = function(userObj, cb) {
 
   console.log('userObj in authenticate', userObj);
@@ -74,7 +73,7 @@ userSchema.statics.authenticate = function(userObj, cb) {
 
     if(!user || user.password !== userObj.password) {
 
-      return cb({error: 'Invalid username or password'})
+      return cb({error: 'Invalid username or password'});
     }
     let token = user.generateToken();
 
@@ -83,6 +82,17 @@ userSchema.statics.authenticate = function(userObj, cb) {
 
 };
 
+userSchema.statics.sendId = function(userObj, cb) {
+  User.findOne({username: userObj.username}, (err, user) => {
+    if(err) return cb(err);
+    if(!user || user.password !== userObj.password) {
+      return cb({error: 'FORBIDDEN'});
+      console.log('user in sendid:', user);
+    }
+    let id = user._id;
+    cb(null, id);
+  })
+}
 
 userSchema.methods.generateToken = function() {
   let payload = {
@@ -91,6 +101,7 @@ userSchema.methods.generateToken = function() {
 
   let token = jwt.sign(payload, secret, {expiresIn: '1 day'} );
   return token;
+  console.log('payload._id', payload._id);
 };
 
 let User = mongoose.model('User', userSchema);
