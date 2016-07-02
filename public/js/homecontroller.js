@@ -2,8 +2,18 @@
 
 angular.module('myApp')
 
-.controller('homeController', function() {
+.controller('homeController', function($scope) {
   console.log('homeController!');
+    $scope.type = {
+    options: [
+      'Female',
+      'Male'
+    ],
+    selected: ''
+  }
+
+
+
 })
 
 

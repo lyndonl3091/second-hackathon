@@ -27,6 +27,10 @@ angular.module('myApp')
 
   }
 
+  this.login = userObj => $http.post('/api/users/login', userObj);
+
+  this.register = userObj => $http.post('/api/users/register', userObj);
+
 })
 
 .service('Match', function($http, $q) {
