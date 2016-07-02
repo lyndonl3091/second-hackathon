@@ -9,6 +9,13 @@
   text-align: center;
 }
 
+
 #top {
   text-align: left;
+}
+
+.not-interested {
+  position:absolute;
+  bottom: 5%;
+  width: 100%;
 }

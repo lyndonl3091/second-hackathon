@@ -30,6 +30,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: '/html/match.html',
       controller: 'matchController'
     })
+    .state('questionnaire', {
+      url: '/questionnaire',
+      templateUrl: '/html/questionnaire.html',
+      controller: 'questionnaireController'
+    })
 
   $urlRouterProvider.otherwise('/');
 })
