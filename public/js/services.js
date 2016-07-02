@@ -1,7 +1,52 @@
 'use strict';
 
-var app = angular.module('myApp');
+angular.module('myApp')
 
-// .service uses 'this'
+.service('User', function($http, $q) {
 
-// .factory returns obj
+  // set user equal to one person's profile... based on cookies/tokens 
+
+
+  // get user by id
+  this.load = id => {
+
+  }
+
+
+  // edit user
+  this.edit = id => {
+
+  }
+
+  // delete user
+  this.delete = id => {
+
+  }
+
+  this.add = id => {
+
+  }
+
+})
+
+.service('Match', function($http, $q) {
+
+  this.getOne = id => {
+
+  }
+
+  this.getAll = () => {
+
+  }
+
+  this.removeOne = id => {
+
+  }
+
+  this.removeAll = () => {
+
+  }
+
+
+})
+

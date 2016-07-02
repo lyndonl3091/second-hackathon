@@ -11,7 +11,7 @@ let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
 let mongoose = require('mongoose');
-let mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/EDIT';
+let mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/lonelysinglesdb';
 
 mongoose.connect(mongoUrl, err => {
   console.log(err || `MongoDB connected to ${mongoUrl}!`);
@@ -29,7 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
