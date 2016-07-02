@@ -39,7 +39,7 @@ angular.module('myApp')
     .catch(err => {
       console.log('err:', err);
     })
-    ;
+
 
   this.logout = () => $http.post('/api/users/logout');
 
