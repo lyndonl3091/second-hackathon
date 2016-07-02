@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Lonely Singles</title>
+    <meta charset="UTF-8">
+    <title>Lonely Singles</title>
 </head>
-<body>
-  <div class='container'>
+
+<body ng-app='myApp'>
 
 
-  
+    <div class='container'>
+        <h1>Matches:</h1>
+
+        <div class="col-md-3" ng-click='selectMatch()'>
+          Hello <button class='btn btn-danger btn-sm'><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        </div>
 
 
 
+    <div class="not-interested col-sm-12">
+
+      <button ng-click='deleteAll()'>Not Interested</button>
+    </div>
 
 
-
-
-
-  </div>
+    </div>
 
 </body>
+
 </html>
