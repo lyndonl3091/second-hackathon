@@ -54,7 +54,11 @@ router.route('/:id')
     User.findByIdAndRemove(req.params.id, (err, user) => {
       res.status(err ? 400: 200).send(err || user);
     });
-  });
-
+  })
+  .post((req, res) => {
+    User.create(req.body, (err, user) => {
+      res.status(err ? 400 : 200).send(err || user);
+    });
+});
 
 module.exports = router;
