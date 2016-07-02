@@ -136,12 +136,12 @@ router.post('/logout', (req, res) => {
   res.clearCookie('authtoken').send();
 })
 
-router.put('/question', User.authMiddleware, (req, res) => {
+router.post('/question', User.authMiddleware, (req, res) => {
   let user = req.user;
   console.log('put user:', user);
   console.log('req.body:', req.body);
 
-  User.findByIdAndUpdate(user._id, req.body, {new:true}, (err, newUser )=> {
+  User.findByIdAndUpdate(user._id, req.body, (err, newUser )=> {
     res.status(err ? 400: 200).send(err || newUser)
   })
 

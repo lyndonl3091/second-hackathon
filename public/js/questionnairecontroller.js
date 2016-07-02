@@ -193,6 +193,7 @@ angular.module('myApp')
 
     console.log('$scope.user:', $scope.user);
     User.add($scope.user)
+
       .then(res => {
         console.log('res:', res);
       })

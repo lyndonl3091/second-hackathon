@@ -32,6 +32,7 @@ angular.module('myApp')
 
   }
 
+
   this.add = user => $http.put('/api/users/question', user)
     .then(res=> {
       console.log('res in services!!', res);
@@ -41,30 +42,41 @@ angular.module('myApp')
     })
 
 
+
+
+
+  this.add = user => $http.post('/api/users/question', user);
+
+
   this.logout = () => $http.post('/api/users/logout');
 
   this.getId = userObj => $http.post('/api/users/loginnow')
 
 
-})
-
-.service('Match', function($http, $q) {
-
-  this.getOne = id => {
-
-  }
-
-  this.getAll = () => {
-
-  }
-
-  this.removeOne = id => {
-
-  }
-
-  this.removeAll = () => {
-
+  this.findMatch = () =>  {
+    return $http.get('api/users/getMatch')
   }
 
 
 })
+
+// .service('Match', function($http, $q) {
+//
+//   this.getOne = id => {
+//
+//   }
+//
+//   this.getAll = () => {
+//
+//   }
+//
+//   this.removeOne = id => {
+//
+//   }
+//
+//   this.removeAll = () => {
+//
+//   }
+//
+//
+// })
