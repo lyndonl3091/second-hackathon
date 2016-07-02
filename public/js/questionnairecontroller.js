@@ -2,7 +2,7 @@
 
 angular.module('myApp')
 
-.controller('questionnaireController', function($scope) {
+.controller('questionnaireController', function($scope, User) {
   console.log('questionnaireController!');
   $scope.genders = {
     options: [
@@ -201,6 +201,11 @@ angular.module('myApp')
       'Growing weed'
     ],
     selected: ''
+  }
+
+  $scope.userSubmit = () => {
+    User.add($scope.user)
+    console.log('$scope.user', $scope.user)
   }
 
 

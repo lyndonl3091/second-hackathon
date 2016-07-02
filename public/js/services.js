@@ -24,12 +24,13 @@ angular.module('myApp')
   }
 
   this.add = id => {
-
+    
   }
 
   this.login = userObj => $http.post('/api/users/login', userObj);
 
   this.register = userObj => $http.post('/api/users/register', userObj);
+
 
 })
 
