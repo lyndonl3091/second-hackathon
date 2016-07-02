@@ -4,12 +4,14 @@ let express = require('express');
 let router = express.Router();
 let Match = require('../models/match');
 
-router.route('/')
-  .get((req, res) => {
-      Match.find({}, (err, matches) => {
-        res.status(err ? 400: 200).send(err || matches);
-      });
-  })
+const User = require('../models/user');
+
+router.get('/getMatch', User.authMiddleware, (req, res) => {
+  console.log('req.user', req.user);
+  let user = req.user;
+    Matches.find({}).$where("")
+  res.send(req.user);
+})
 
 
 router.route('/:id')

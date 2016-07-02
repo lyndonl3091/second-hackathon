@@ -17,6 +17,15 @@ router.get('/', (req, res) => {
   })
 
 });
+router.get('/getMatch', User.authMiddleware,(req, res) => {
+  console.log('req.user', req.user);
+  let user = req.user;
+    User.find( {'_id': {$ne: user._id}}, {new:true}, (err, match) => {
+      console.log('match:', match);
+      res.send(match);
+    }
+  )
+})
 
 
 // getUser route
@@ -54,6 +63,17 @@ router.post('/logout', (req, res) => {
   res.clearCookie('authtoken').send();
 })
 
+router.put('/question', User.authMiddleware, (req, res) => {
+  let user = req.user;
+  console.log('put user:', user);
+  console.log('req.body:', req.body);
+
+  User.findByIdAndUpdate(user._id, req.body, {new:true}, (err, newUser )=> {
+    res.status(err ? 400: 200).send(err || newUser)
+  })
+
+})
+
 //// ----------------------------\\\\\
 
 router.route('/:id')
@@ -63,8 +83,6 @@ router.route('/:id')
     });
   })
   .put((req, res) => {
-    console.log('req.body', req.body);
-    console.log('req.params.id', req.params.id);
     User.findByIdAndUpdate(req.params.id, (err, user) => {
       res.status(err ? 400: 200).send(err || user);
     });
