@@ -20,11 +20,84 @@ router.get('/', (req, res) => {
 router.get('/getMatch', User.authMiddleware,(req, res) => {
   console.log('req.user', req.user);
   let user = req.user;
-    User.find( {'_id': {$ne: user._id}}, {new:true}, (err, match) => {
+    User.find({'_id': {$ne: user._id}, 'gender': {$ne: user.gender}}, (err, match) => {
       console.log('match:', match);
-      res.send(match);
-    }
-  )
+      let matchArr = [];
+
+      for(let key in match) {
+        let matchCount = 0;
+        console.log('match[key].username:', match[key].username);
+        if(match[key].dayOrNight === user.dayOrNight) {
+          matchCount++
+        }
+        if(match[key].famous === user.famous) {
+          matchCount++
+        }
+        if(match[key].interest === user.interest) {
+          matchCount++
+        }
+        if(match[key].hobbies === user.hobbies) {
+          matchCount++
+        }
+        if(match[key].food === user.food) {
+          matchCount++
+        }
+        if(match[key].color === user.color) {
+          matchCount++
+        }
+        if(match[key].drink === user.drink) {
+          matchCount++
+        }
+        if(match[key].mean === user.mean) {
+          matchCount++
+        }
+        if(match[key].socialMedia === user.socialMedia) {
+          matchCount++
+        }
+        if(match[key].personality === user.personality) {
+          matchCount++
+        }
+        if(match[key].phone === user.phone) {
+          matchCount++
+        }
+        if(match[key].movies === user.movies) {
+          matchCount++
+        }
+        if(match[key].music === user.music) {
+          matchCount++
+        }
+        if(match[key].steak === user.steak) {
+          matchCount++
+        }
+        if(match[key].continent === user.continent) {
+          matchCount++
+        }
+        if(match[key].crime === user.crime) {
+          matchCount++
+        }
+        if(match[key].pokemon === user.pokemon) {
+          matchCount++
+        }
+
+        if(matchCount >= 5) {
+          matchArr.push(match[key])
+        };
+
+
+        console.log('matchCount:', matchCount);
+      }
+      res.send(matchArr);
+    })
+    // .and('_id': {$ne: user._id}, 'gender': {$ne: user.gender})
+    // .and([
+    //   {$or: [{'_id': {$ne: user._id}, 'gender': {$ne: user.gender}, 'dayOrNight': user.dayOrNight, 'teaOrCoffee': user.teaOrCoffee}]},
+    //   {$or: [{'_id': {$ne: user._id}, 'gender': {$ne: user.gender}, 'dayOrNight': user.dayOrNight, 'teaOrCoffee': {$ne: user.teaOrCoffee}}]}
+    // ])
+    // .exec((err, match) => {
+    //   console.log('match:', match);
+    //   res.send(match)
+    // })
+
 })
 
 
