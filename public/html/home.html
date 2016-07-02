@@ -1,65 +1,47 @@
 
 
 <div class="home" ng-controller='homeController'>
-  <h4>Welcome to lonely singles 101</h4>
-
-
-<div class="userOptions">
-  <div class="container">
-    <div class="row heart">
-      <div class="col-lg-12">hifwjaidfjslfjksdafjlksdjfklsackldsneifwif;dsfjksadf</div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
+  <h4>"Perfect".match(/^Perfect$/gi)</h4>
 
 
     
 <div class="container">
     <div class="row">
-      <div class="col-lg-6">
-        <div class="propertyInfo">
-          <h4>New user? Register here:</h4>
+      <div class="col-lg-6 heart">
           <form ng-submit="userSubmit()">
             <div class="form-group">
-              <label class="control-label" for="focusedInput">Username</label>
-              <input class="form-control" id="focusedInput" type="text" placeholder="Username" ng-model='user.username'>
+              <label class="control-label" for="focusedInput">New users:</label>
+              <input class="form-control" id="focusedInput" type="text" placeholder="Username" ng-model='user.username'><br>
               <label class="control-label" for="focusedInput">Password</label>
               <input class="form-control" id="focusedInput" type="password" placeholder="Password" ng-model='user.password'>
             </div>
 
-            <button type="button" class="btn btn-default" ng-click="removeProperty()">Cancel</button>  
-            <button class="btn btn-success">Register now</button>   
+            <button type="button" class="btn btn-default btn-xs" ng-click="removeProperty()">Cancel</button>  
+            <button class="btn btn-success btn-xs">Register now</button>   
 
 
              <!--have this button click and authenticate... if it works, bring them to profile -->
 
 
           </form>
-        </div>
       </div>
 
   
 
-      <div class="col-lg-6">
-      <h4>Existing users:</h4>
+      <div class="col-lg-6 heart">
         <form ng-submit="userLogin()">
         <div class="form-group">
-          <label class="control-label" for="focusedInput">Username</label>
-          <input class="form-control" id="focusedInput" type="text" placeholder="Username" ng-model='userExisting.username'>
+          <label class="control-label" for="focusedInput">Existing:</label>
+          <input class="form-control" id="focusedInput" type="text" placeholder="Username" ng-model='userExisting.username'><br>
           <label class="control-label" for="focusedInput">Password</label>
           <input class="form-control" id="focusedInput" type="password" placeholder="Password" ng-model='userExisting.password'>
         </div>
-      <button type="button" class="btn btn-default" ng-click="removeProperty()">Cancel</button>  
-      <button class="btn btn-success">Login</button>   
-       <!-- have this button click and authenticate... if it works, bring them to profile -->
+      <button type="button" class="btn btn-default btn-xs" ng-click="removeProperty()">Cancel</button>  
+      <button class="btn btn-success btn-xs">Login</button>   
+
         </form>
       </div>
-      <!-- after login, just bring them to profile -->
+
     </div>
   </div>
 
