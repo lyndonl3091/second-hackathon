@@ -37,10 +37,10 @@ let userSchema = new mongoose.Schema({
   jwt.verify(token, secret, (err, payload) => {
     if(err) return res.status(401).send(err);
 
-    this.findById(payload._id, (err, user) => {
+    User.findById(payload._id, (err, user) => {
       if(err || !user) return res.status(401).send(err || {error: 'User not found.'});
 
-      res.user = user;
+      req.user = user;
 
       next();
     }).select('-password');

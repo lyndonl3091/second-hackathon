@@ -9,7 +9,6 @@ let router = express.Router();
 
 router.get('/', (req, res) => {
 
-    console.log('req.cookies:', req.cookies);
     User.find({}, (err, users) => {
         if (err) return res.status(400).send(err);
         res.send(users)
@@ -18,8 +17,9 @@ router.get('/', (req, res) => {
 });
 
 // getUser route
-router.post('/getUser', User.authMiddleware, (req, res) => {
+router.get('/getUser', User.authMiddleware, (req, res) => {
   console.log('req.user', req.user);
+
   res.send(req.user);
 
 })
@@ -39,7 +39,7 @@ router.post('/login', (req, res) => {
 
       res.cookie('authtoken', token).send();
 
-      
+
 
     });
 

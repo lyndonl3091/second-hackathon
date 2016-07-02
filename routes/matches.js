@@ -10,28 +10,9 @@ router.route('/')
         res.status(err ? 400: 200).send(err || matches);
       });
   })
-  .post((req, res) => {
-    Match.create(req.body, (err, match) => {
-      res.status(err ? 400: 200).send(err || match);
-    });
-  })
-  .delete((req,res) => {
-    Match.deleteMany({}, (err, match) => {
-      res.status(err ? 400: 200).send(err || match);
-    })
-  })
+
 
 router.route('/:id')
-  .get((req, res) => {
-    Match.findById(req.params.id, (err, match) => {
-      res.status(err ? 400: 200).send(err || match);
-    });
-  })
-  .put((req, res) => {
-    Match.findByIdAndUpdate(req.params.id, (err, match) => {
-      res.status(err ? 400: 200).send(err || match);
-    });
-  })
   .delete((req, res) => {
     Match.findByIdAndRemove(req.params.id, (err, match) => {
       res.status(err ? 400: 200).send(err || match);
