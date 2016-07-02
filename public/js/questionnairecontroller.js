@@ -2,7 +2,11 @@
 
 angular.module('myApp')
 
-.controller('questionnaireController', function($scope, User) {
+.controller('questionnaireController', function($scope, User, $sessionStorage) {
+
+  console.log('sessionStorage', $sessionStorage.currentUser);
+
+  // console.log('sessionStorage:', )
   console.log('questionnaireController!');
   $scope.genders = {
     options: [
@@ -204,7 +208,13 @@ angular.module('myApp')
   }
 
   $scope.userSubmit = () => {
-    User.add($scope.user)
+    User.add($sessionStorage.currentUser._id, $scope.user)
+      .then(res => {
+        console.log('res.data:', res.data);
+      })
+      .catch(err => {
+        console.log('err:', err);
+      })
     console.log('$scope.user', $scope.user)
   }
 

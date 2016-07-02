@@ -17,6 +17,13 @@ router.get('/', (req, res) => {
     })
 });
 
+// getUser route
+router.post('/getUser', User.authMiddleware, (req, res) => {
+  console.log('req.user', req.user);
+  res.send(req.user);
+
+})
+
 router.post('/register', (req, res) => {
     User.register(req.body, err => {
         res.status(err ? 400 : 200).send(err);
@@ -24,10 +31,15 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+  console.log('req.body', req.body);
     User.authenticate(req.body, (err, token) => {
       if(err) return res.status(400).send(err);
 
-      res.cookie('authtoken', token).send()
+      console.log('token', token);
+
+      res.cookie('authtoken', token).send();
+
+      
 
     });
 
@@ -46,6 +58,8 @@ router.route('/:id')
     });
   })
   .put((req, res) => {
+    console.log('req.body', req.body);
+    console.log('req.params.id', req.params.id);
     User.findByIdAndUpdate(req.params.id, (err, user) => {
       res.status(err ? 400: 200).send(err || user);
     });
@@ -56,9 +70,9 @@ router.route('/:id')
     });
   })
   .post((req, res) => {
-    User.create(req.body, (err, user) => {
+    User.create(req.params.id, (err, user) => {
       res.status(err ? 400 : 200).send(err || user);
     });
-});
+  });
 
 module.exports = router;

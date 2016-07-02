@@ -10,6 +10,7 @@
 
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.js" charset="utf-8"></script>
+  <script src="/bower_components/ngstorage/ngStorage.js"></script>
 
   <script src="/js/module.js"></script>
   <script src="/js/homecontroller.js"></script>
@@ -17,12 +18,14 @@
   <script src="/js/maincontroller.js"></script>
   <script src="/js/usercontroller.js"></script>
   <script src="/js/questionnairecontroller.js"></script>
+  <script src="/js/registercontroller.js"></script>
+  <script src="/js/logincontroller.js"></script>
   <script src="/js/services.js"></script>
 
 </head>
 <body ng-app='myApp' ng-controller='homeController'>
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" ng-if='currentUser'>
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" ui-sref='home'><span class="glyphicon glyphicon-home"></span></a>

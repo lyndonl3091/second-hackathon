@@ -62,10 +62,15 @@ userSchema.statics.register = function(userObj, cb) {
   })
 };
 
+
+
 userSchema.statics.authenticate = function(userObj, cb) {
 
-  this.findOne({username: userObj.username}, (err, user) => {
+  console.log('userObj in authenticate', userObj);
+
+  User.findOne({username: userObj.username}, (err, user) => {
     if(err) return cb(err);
+    console.log('dbUser', user);
 
     if(!user || user.password !== userObj.password) {
 
