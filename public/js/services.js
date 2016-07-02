@@ -32,7 +32,14 @@ angular.module('myApp')
 
   }
 
-  this.add = user => $http.put('/api/users/question', user);
+  this.add = user => $http.put('/api/users/question', user)
+    .then(res=> {
+      console.log('res in services!!', res);
+    })
+    .catch(err => {
+      console.log('err:', err);
+    })
+    ;
 
   this.logout = () => $http.post('/api/users/logout');
 
