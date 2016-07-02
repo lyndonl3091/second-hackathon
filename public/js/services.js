@@ -4,9 +4,6 @@ angular.module('myApp')
 
 .service('User', function($http, $q, $rootScope) {
 
-  // this.Individual = [];
-  // set user equal to one person's profile... based on cookies/tokens
-
   this.login = userObj => $http.post('/api/users/login', userObj);
 
   this.register = userObj => $http.post('/api/users/register', userObj);
@@ -35,11 +32,12 @@ angular.module('myApp')
 
   }
 
-  this.add = (id, user) => $http.put('/api/users/question', user);
+  this.add = user => $http.put('/api/users/question', user);
 
   this.logout = () => $http.post('/api/users/logout');
 
-  this.getId = userObj => $http.post('/api/users/loginnow');
+  this.getId = userObj => $http.post('/api/users/loginnow')
+
 
 })
 

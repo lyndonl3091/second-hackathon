@@ -21,16 +21,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: '/html/user.html',
       controller: 'userController'
     })
-    .state('login', {
-      url: '/login',
-      templateUrl: '/html/login.html',
-      controller: 'loginController'
-    })
-    .state('register', {
-      url: '/register',
-      templateUrl: '/html/register.html',
-      controller: 'registerController'
-    })
     .state('match', {
       url: '/match',
       templateUrl: '/html/match.html',
