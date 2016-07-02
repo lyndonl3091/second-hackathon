@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 
 // getUser route
-router.post('/getUser', User.authMiddleware, (req, res) => {
+router.get('/getUser', User.authMiddleware, (req, res) => {
   console.log('req.user', req.user);
   res.send(req.user);
 })

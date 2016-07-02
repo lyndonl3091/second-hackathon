@@ -34,7 +34,7 @@ let userSchema = new mongoose.Schema({
 
   let token = req.cookies.authtoken;
 
-  jwt.verify(token, secret, function (err, payload)  {
+  jwt.verify(token, secret, (err, payload) => {
     if(err) return res.status(401).send(err);
 
     this.findById(payload._id, (err, user) => {
