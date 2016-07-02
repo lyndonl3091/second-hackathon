@@ -2,10 +2,10 @@
 
 angular.module('myApp')
 
-.service('User', function($http, $q) {
+.service('User', function($http, $q, $rootScope) {
 
-  this.Individual = [];
-  // set user equal to one person's profile... based on cookies/tokens 
+  // this.Individual = [];
+  // set user equal to one person's profile... based on cookies/tokens
 
   this.login = userObj => $http.post('/api/users/login', userObj);
 
@@ -17,7 +17,12 @@ angular.module('myApp')
 
   }
 
-  this.getUser = () => $http.get('/api/users/getUser');
+  this.getUser = () => $http.get('/api/users/getUser')
+    .then(res => {
+      this.self = res.data;
+      $rootScope.currentUser = res.data;
+      return $q.resolve(res);
+    });
 
 
   // edit user
@@ -30,7 +35,7 @@ angular.module('myApp')
 
   }
 
-  this.add = (id, user) => $http.put(`/api/users/${id}`, user);
+  this.add = (id, user) => $http.put('/api/users/question', user);
 
   this.logout = () => $http.post('/api/users/logout');
 
@@ -58,4 +63,3 @@ angular.module('myApp')
 
 
 })
-

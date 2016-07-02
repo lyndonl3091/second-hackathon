@@ -2,15 +2,9 @@
 
 var app = angular.module('myApp', ['ui.router', 'ngStorage'])
 
-app.run(function($http) {
 
-  $http.get('/api/users/getUser')
-    .then(res => {
-      console.log('res:', res);
-    })
-
-
-
+app.run(function(User) {
+  User.getUser();
 })
 
 
@@ -50,4 +44,3 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 })
-

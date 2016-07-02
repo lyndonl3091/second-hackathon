@@ -4,7 +4,7 @@ angular.module('myApp')
 
 .controller('homeController', function($scope, $state, $rootScope, $sessionStorage, User) {
 
-  $scope.currentUser = $sessionStorage.currentUser;
+  // $scope.currentUser = $sessionStorage.currentUser;
 
 
   console.log('$scope.currentUser', $scope.currentUser);
@@ -55,7 +55,3 @@ angular.module('myApp')
   }
 
 })
-
-
-
-
