@@ -2,7 +2,7 @@
 
 angular.module('myApp')
 
-.controller('matchController', function() {
+.controller('matchController', function($scope) {
   
    $scope.logOut = () => {
     User.logout()

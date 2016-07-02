@@ -5,8 +5,11 @@ angular.module('myApp')
 .controller('userController', function($scope, User, $sessionStorage, $localStorage) {
   console.log('userController!');
 
+  $scope.user = $sessionStorage.currentUser.user;
+  console.log('$scope.user in usercontroller:', $scope.user);
+
   $scope.storage = $localStorage.$default({
-    individuals: User.Individual || []
+    individuals: User.Individual
   })
 
 

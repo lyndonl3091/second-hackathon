@@ -4,7 +4,6 @@ angular.module('myApp')
 
 .controller('questionnaireController', function($scope, User, $sessionStorage, $state, $rootScope, $localStorage) {
 
-  $scope.storage = $localStorage
 
   console.log('sessionStorage', $sessionStorage.currentUser);
 
@@ -14,8 +13,7 @@ angular.module('myApp')
     options: [
       'Female',
       'Male'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.interests = {
@@ -24,8 +22,7 @@ angular.module('myApp')
       'Literature',
       'Art',
       'Programming'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.hobbies = {
@@ -35,8 +32,7 @@ angular.module('myApp')
       'Dancing',
       'Rock climbing',
       'Reading/writing'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.foods = {
@@ -48,8 +44,7 @@ angular.module('myApp')
       'Indian',
       'Japanese',
       'Italian'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.colors = {
@@ -60,8 +55,7 @@ angular.module('myApp')
       'Purple',
       'Green',
       'Black'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.drinks = {
@@ -72,16 +66,14 @@ angular.module('myApp')
       'Whiskey',
       'Rum',
       'Soju'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.dayOrNight = {
     options: [
       'Day',
       'Night'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.pokemons = {
@@ -89,8 +81,7 @@ angular.module('myApp')
       'Charmander',
       'Squirtle',
       'Bulbasaur'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.mean = {
@@ -99,8 +90,7 @@ angular.module('myApp')
       'Express',
       'AngularJS',
       'Node.js'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.socialMedia = {
@@ -110,8 +100,7 @@ angular.module('myApp')
       'Twitter',
       'Snapchat',
       'Vine'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.personalities = {
@@ -119,24 +108,21 @@ angular.module('myApp')
       'Extrovert',
       'Introvert',
       'Ambivert'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.teaOrCoffee = {
     options: [
       'Tea',
       'Coffee'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.phones = {
     options: [
       'Android',
       'iOS'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.movies = {
@@ -148,8 +134,7 @@ angular.module('myApp')
       'Animation',
       'Suspense',
       'Sci-Fi'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.musics = {
@@ -161,8 +146,7 @@ angular.module('myApp')
       'Pop',
       'Hip Hop',
       'R&B'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.steaks = {
@@ -173,16 +157,14 @@ angular.module('myApp')
       'Medium rare',
       'Rare',
       'None'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.famous = {
     options: [
       'Yes',
       'No'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.continents = {
@@ -194,8 +176,7 @@ angular.module('myApp')
       'Europe',
       'Australia',
       'Antarctica'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.crimes = {
@@ -205,13 +186,12 @@ angular.module('myApp')
       'Drugs',
       'Vandalism',
       'Growing weed'
-    ],
-    selected: ''
+    ]
   }
 
   $scope.userSubmit = () => {
-    console.log('$sessionStorage.user', $sessionStorage.user);
-    $scope.storage.individuals.push($scope.user);
+      $sessionStorage.currentUser.user = $scope.user;
+    console.log('$sessionStorage.currentUser.user', $sessionStorage.currentUser.user);
     console.log('User.Individual:', User.Individual);
     User.add($sessionStorage.currentUser._id, $scope.user)
       .then(res => {
