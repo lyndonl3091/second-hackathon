@@ -2,6 +2,10 @@
 
 var app = angular.module('myApp', ['ui.router', 'ngStorage'])
 
+app.run(function(User) {
+  User.getUser();
+})
+
 app.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
@@ -38,4 +42,3 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 })
-
