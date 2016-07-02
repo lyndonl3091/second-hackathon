@@ -8,3 +8,9 @@
 .home {
   text-align: center;
 }
+
+.not-interested {
+  position:absolute;
+  bottom: 5%;
+  width: 100%;
+}
