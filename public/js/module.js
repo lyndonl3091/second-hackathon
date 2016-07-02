@@ -1,7 +1,36 @@
 'use strict';
 
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ui.router'])
 
-// localStorage:
-// var app = angular.module('myApp', ['ngStorage']);
+app.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: '/html/home.html',
+      controller: 'homeController'
+    })
+    .state('user', {
+      url: '/user',
+      templateUrl: '/html/user.html',
+      controller: 'userController'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: '/html/login.html',
+      controller: 'loginController'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: '/html/register.html',
+      controller: 'registerController'
+    })
+    .state('match', {
+      url: '/match',
+      templateUrl: '/html/match.html',
+      controller: 'matchController'
+    })
+
+  $urlRouterProvider.otherwise('/');
+})
 
