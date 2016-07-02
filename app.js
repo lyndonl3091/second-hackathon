@@ -11,7 +11,7 @@ let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
 let mongoose = require('mongoose');
-let mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/EDIT';
+let mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/lonelysinglesdb';
 
 mongoose.connect(mongoUrl, err => {
   console.log(err || `MongoDB connected to ${mongoUrl}!`);
@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //// ROUTERS ////
 
-
+app.use('/api', require('./routes/api'))
 
 /////////////////
 
@@ -57,6 +57,3 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.send(err);
 });
-
-
-
