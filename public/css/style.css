@@ -4,6 +4,7 @@ body {
   width: 100%;
   background-size: 100%;
   font-family: "Beyond";
+  vertical-align: middle;
 }
 
 .theOutside {
@@ -11,12 +12,15 @@ body {
   height: 100%;
   padding: 20px;
   text-align: center; 
+  vertical-align: middle;
+  line-height: 100%;
 }
 
 .home {
   text-align: center;
   font-family: "Beyond";
   font-size: 30px;
+  vertical-align: middle;
 }
 
 .home > h4 {
@@ -54,6 +58,8 @@ body {
   background-repeat: no-repeat;
   width: 50%;
   height: 512px;
+  vertical-align: middle;
+  line-height: 512px;
 }
 
 .home {

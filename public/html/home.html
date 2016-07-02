@@ -15,6 +15,59 @@
 
 
 
+
+
+
+    
+<div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="propertyInfo">
+          <h4>New user? Register here:</h4>
+          <form ng-submit="userSubmit()">
+            <div class="form-group">
+              <label class="control-label" for="focusedInput">Username</label>
+              <input class="form-control" id="focusedInput" type="text" placeholder="Username" ng-model='user.username'>
+              <label class="control-label" for="focusedInput">Password</label>
+              <input class="form-control" id="focusedInput" type="password" placeholder="Password" ng-model='user.password'>
+            </div>
+
+            <button type="button" class="btn btn-default" ng-click="removeProperty()">Cancel</button>  
+            <button class="btn btn-success">Register now</button>   
+
+
+             <!--have this button click and authenticate... if it works, bring them to profile -->
+
+
+          </form>
+        </div>
+      </div>
+
+  
+
+      <div class="col-lg-6">
+      <h4>Existing users:</h4>
+        <form ng-submit="userLogin()">
+        <div class="form-group">
+          <label class="control-label" for="focusedInput">Username</label>
+          <input class="form-control" id="focusedInput" type="text" placeholder="Username" ng-model='userExisting.username'>
+          <label class="control-label" for="focusedInput">Password</label>
+          <input class="form-control" id="focusedInput" type="password" placeholder="Password" ng-model='userExisting.password'>
+        </div>
+      <button type="button" class="btn btn-default" ng-click="removeProperty()">Cancel</button>  
+      <button class="btn btn-success">Login</button>   
+       <!-- have this button click and authenticate... if it works, bring them to profile -->
+        </form>
+      </div>
+      <!-- after login, just bring them to profile -->
+    </div>
+  </div>
+
+
+
+
+
+
 </div>
 
 
