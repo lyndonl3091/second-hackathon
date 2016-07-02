@@ -2,6 +2,53 @@
 
 <div class="home" ng-controller='homeController'>
   <h4>Welcome to lonely singles 101</h4>
-  <button class="btn btn-default" ui-sref='user'>Get started</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6" ng-controller='registerController'>Register
+        <div class="propertyInfo">
+  <h4>Enter new property info here:</h4>
+  <form ng-submit="propertySubmit()">
+    <div class="form-group">
+      <label class="control-label" for="focusedInput">Property address</label>
+      <input class="form-control" id="focusedInput" type="text" placeholder="Street" ng-model='property.address.street'>
+      <input class="form-control" id="focusedInput" type="text" placeholder="City" ng-model='property.address.city'>
+      <input class="form-control" id="focusedInput" type="number" placeholder="Zipcode" ng-model='property.address.zip'>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="focusedInput">Max Occupancy</label>
+      <input class="form-control" id="focusedInput" type="number" ng-model='property.maxOccupancy'>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="focusedInput"># of rooms:</label>
+      <input class="form-control" id="focusedInput" type="number" ng-model='property.rooms'>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="focusedInput">Type</label>
+      <select class="form-control" id="select" ng-model='type.selected' ng-options='t as t for t in type.options'></select>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="focusedInput">Image:</label>
+      <input class="form-control" id="focusedInput" type="text" ng-model='property.image'>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="focusedInput">Description:</label>
+      <input class="form-control" id="focusedInput" type="text" ng-model='property.description'>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="focusedInput">Rent:</label>
+      <input class="form-control" id="focusedInput" type="number" ng-model='property.rent'>
+    </div>
+
+    <button type="button" class="btn btn-default" ng-click="removeProperty()">Cancel</button>  
+    <button class="btn btn-success">Add property</button>     
+  </form>
+</div>
+
+
+
+      </div>
+      <div class="col-lg-6" ng-controller='loginController'>Login</div>
+    </div>
+  </div>
   
 </div>
