@@ -190,17 +190,16 @@ angular.module('myApp')
   }
 
   $scope.userSubmit = () => {
-      $sessionStorage.currentUser.user = $scope.user;
-    console.log('$sessionStorage.currentUser.user', $sessionStorage.currentUser.user);
-    console.log('User.Individual:', User.Individual);
-    User.add($sessionStorage.currentUser._id, $scope.user)
+    User.add($scope.currentUser._id, $scope.user)
       .then(res => {
         console.log('res.data:', res.data);
       })
       .catch(err => {
         console.log('err:', err);
       })
-    console.log('$scope.user', $scope.user)
+    console.log('$scope.user', $scope.user);
+    User.getUser();
+    console.log('$scope.user', $scope.currentUser);
     $state.go('user');
   }
 

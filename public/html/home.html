@@ -3,7 +3,6 @@
 <div class="home" ng-controller='homeController'>
   <h4>"Perfect".match(/^Perfect$/gi)</h4>
 
-
     
 <div class="container">
     <div class="row">
@@ -12,12 +11,12 @@
             <div class="form-group">
               <label class="control-label" for="focusedInput">New users:</label>
               <input class="form-control" id="focusedInput" type="text" placeholder="Username" ng-model='user.username'><br>
-              <label class="control-label" for="focusedInput">Password</label>
+              <label class="control-label" for="focusedInput"></label>
               <input class="form-control" id="focusedInput" type="password" placeholder="Password" ng-model='user.password'>
             </div>
 
             <button type="button" class="btn btn-default btn-xs" ng-click="removeProperty()">Cancel</button>  
-            <button class="btn btn-success btn-xs">Register now</button>   
+            <button class="btn btn-success btn-xs">Register</button>   
 
 
              <!--have this button click and authenticate... if it works, bring them to profile -->
@@ -33,7 +32,7 @@
         <div class="form-group">
           <label class="control-label" for="focusedInput">Existing:</label>
           <input class="form-control" id="focusedInput" type="text" placeholder="Username" ng-model='userExisting.username'><br>
-          <label class="control-label" for="focusedInput">Password</label>
+          <label class="control-label" for="focusedInput"></label>
           <input class="form-control" id="focusedInput" type="password" placeholder="Password" ng-model='userExisting.password'>
         </div>
       <button type="button" class="btn btn-default btn-xs" ng-click="removeProperty()">Cancel</button>  

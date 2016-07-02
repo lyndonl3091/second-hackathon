@@ -5,15 +5,14 @@ angular.module('myApp')
 .controller('userController', function($scope, User, $sessionStorage, $localStorage) {
   console.log('userController!');
 
-  $scope.user = $sessionStorage.currentUser.user;
+  User.getUser();
+
+  $scope.user = $scope.currentUser;
   console.log('$scope.user in usercontroller:', $scope.user);
 
-  $scope.storage = $localStorage.$default({
-    individuals: User.Individual
-  })
 
 
-  console.log('$scope.storage.individuals', $scope.storage.individuals);
+  // console.log('$scope.user,' $scope.user);
 
   $scope.logOut = () => {
     User.logout()
@@ -24,7 +23,6 @@ angular.module('myApp')
           console.log('err in logoutcontroller:', err);
         })   
   }
-
 
 });
 
