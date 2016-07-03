@@ -27,5 +27,14 @@ $scope.findMatch = () => {
   });
 };
 
+$scope.selectMatch = index  => {
+  console.log('index:', index);
+  swal({   title: "Yay!",   text: `${$scope.matches[index].username} is your match!`,   imageUrl: "images/match.gif" });
+}
+
+$scope.deleteAll = () => {
+  $scope.matches = [];
+}
+
 
 });

@@ -84,3 +84,13 @@ form {
   font-size: 24px !important;
 
 }
+
+.match {
+  display: inline-block !important;
+  margin: 5px;
+}
+
+.b {
+  display: inline-block !important;
+  margin: 20px;
+}
