@@ -28,7 +28,7 @@
       <div class="anotherAbout">
       <br><br><br><br>
 
-      <h1>Hi {{currentUser.username}}!</h1>
+      <h1>Hi {{currentUser.username | capitalize}}!</h1>
         <button class="btn btn-default" ui-sref='questionnaire'><span class='glyphicon glyphicon-pencil'></span> Take the questionnaire</button> 
       <!-- My name is {{currentUser.username}}! My interest and hobbies include {{currentUser.interest}} and {{currentUser.hobbies}}. Speaking of interests, my favorite letter of the MEAN stack is {{currentUser.mean}}. My favorite food is {{currentUser.food}} and my favorite drink is {{currentUser.drink}}. My favorite color is {{currentUser.color}}. I'm a {{currentUser.dayOrNight}} person, and love drinking {{currentUser.teaOrCoffee}}. My starter pokemon would be {{currentUser.pokemon}}. I like using {{currentUser.socialMedia}} on my {{currentUser.phone}} device. I'm an {{currentUser.personality}}. My favorite genres in movie and music are {{currentUser.movie}} and {{currentUser.music}}, respectively. 
       For my next vacation, I'd like to go to {{currentUser.continent}}. In the case that I'd be arrested, it would probably be associated with {{currentUser.crime}}. -->
