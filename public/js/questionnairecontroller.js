@@ -191,11 +191,36 @@ angular.module('myApp')
 
   $scope.userSubmit = () => {
 
+
+    let newObj = {
+      username: $rootScope.currentUser.username,
+      password: $rootScope.currentUser.password,
+      gender: $scope.user.genders.selected,
+      interest: $scope.user.interests.selected,
+      hobbies: $scope.user.hobbies.selected,
+      food: $scope.user.foods.selected,
+      color: $scope.user.colors.selected,
+      drink: $scope.user.drinks.selected,
+      dayOrNight: $scope.user.dayOrNight.selected,
+      pokemon: $scope.user.pokemons.selected,
+      mean: $scope.user.mean.selected,
+      socialMedia: $scope.user.socialMedia.selected,
+      personality: $scope.user.personalities.selected,
+      teaOrCoffee: $scope.user.teaOrCoffee.selected,
+      phone: $scope.user.phones.selected,
+      movie: $scope.user.movies.selected,
+      music: $scope.user.musics.selected,
+      steak: $scope.user.steaks.selected,
+      famous: $scope.user.famous.selected,
+      continent: $scope.user.continents.selected,
+      crime: $scope.user.crimes.selected 
+    }
+
+
   console.log('$scope.user in usersubmit:', $scope.user);
-    $rootScope.currentUser.user = $scope.user;
     console.log('$rootScope.currentUser._id:', $rootScope.currentUser._id);
 
-    User.add($rootScope.currentUser._id, $rootScope.currentUser)
+    User.add($rootScope.currentUser._id, newObj)
       .then(res => {
         console.log('res:', res);
 

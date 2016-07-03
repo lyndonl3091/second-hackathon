@@ -7,13 +7,9 @@ angular.module('myApp')
 
   User.getUser();
 
-  // $scope.user = $rootScope.currentUser;
 
-  // $scope.lists = $rootScope.currentUser.user || [];
- 
 
   console.log('$rootScope.currentUser', $rootScope.currentUser);
-  console.log('$scope.lists', $scope.lists);
 
   // console.log('$scope.user,' $scope.user);
 
@@ -26,6 +22,7 @@ angular.module('myApp')
           console.log('err in logoutcontroller:', err);
         })   
   }
+
 
 });
 
