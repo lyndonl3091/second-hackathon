@@ -108,6 +108,11 @@ router.get('/getUser', User.authMiddleware, (req, res) => {
   res.send(req.user);
 })
 
+
+router.get('/getItems', User.authMiddleware, (req, res) => {
+  console.log('req in getitems:', req);
+})
+
 router.post('/register', (req, res) => {
     User.register(req.body, err => {
         res.status(err ? 400 : 200).send(err);
@@ -142,7 +147,7 @@ router.post('/question', User.authMiddleware, (req, res) => {
   console.log('req.body:', req.body);
 
   User.findByIdAndUpdate(user._id, req.body, (err, newUser )=> {
-    res.status(err ? 400: 200).send(err || newUser)
+    res.status(err ? 400: 200).send(err || newUser);
   })
 
 })

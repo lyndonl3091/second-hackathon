@@ -32,8 +32,16 @@ angular.module('myApp')
 
   }
 
+  this.getItems = () => $http.get('/api/users/getItems')
+    .then(res => {
+      console.log('getItems:', res);
+    })
+    .catch(err => {
+      console.log('err:', err);
+    })
 
-  this.add = user => $http.put('/api/users/question', user)
+
+  this.add = user => $http.post('/api/users/question', user)
     .then(res=> {
       console.log('res in services!!', res);
     })
