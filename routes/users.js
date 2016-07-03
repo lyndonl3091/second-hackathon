@@ -81,9 +81,9 @@ router.get('/getMatch', User.authMiddleware,(req, res) => {
           matchCount++
         }
 
-        if(matchCount >= 5) {
+        if(matchCount >= 7) {
           matchArr.push(match[key])
-        };
+        }
       }
       res.send(matchArr);
     })
@@ -174,11 +174,7 @@ router.route('/:id')
    })
    // User.save()
  })
-  .post((req, res) => {
-    User.create(req.params.id, (err, user) => {
-      res.status(err ? 400 : 200).send(err || user);
-    });
-  });
+
 
 
 module.exports = router;
