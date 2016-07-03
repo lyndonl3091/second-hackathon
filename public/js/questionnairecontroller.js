@@ -217,6 +217,7 @@ angular.module('myApp')
     }
 
 
+
   console.log('$scope.user in usersubmit:', $scope.user);
     console.log('$rootScope.currentUser._id:', $rootScope.currentUser._id);
 
@@ -250,6 +251,8 @@ angular.module('myApp')
       .catch(err => {
         console.log('err:', err);
       })
+  $rootScope.newObj = newObj;
+  console.log('$rootScope.newObj', $rootScope.newObj);
 
 
     // User.getUser();
