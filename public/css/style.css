@@ -16,6 +16,7 @@ body {
   text-align: center;
   vertical-align: middle;
   line-height: 100%;
+  font-family: "Beyond";
 }
 
 .home {
@@ -28,21 +29,25 @@ body {
 
 .home > h4 {
   font-size: 40px;
+  font-family: "Beyond";
 }
 
 .home {
   color: white;
+  font-family: "Beyond";
 }
 
 
 #top {
   text-align: left;
+  font-family: "Beyond";
 }
 
 .not-interested {
   position:absolute;
   bottom: 5%;
   width: 100%;
+  font-family: "Beyond";
 }
 
 @font-face {
@@ -56,7 +61,7 @@ body {
   text-align: center;
 }
 
-.col-lg-6 {
+.heart {
    background-image: url('http://iconshow.me/media/images/ui/ios7-icons/png/512/heart-outline.png');
   background-repeat: no-repeat;
   vertical-align: middle;
@@ -64,23 +69,97 @@ body {
   text-align: center;
   width: 500px;
   height: 600px;
+  color: white;
 }
 
 .home {
   text-align: center;
+  font-family: "Beyond";
 }
 
-form {
+.heart > form {
   padding-top: 180px;
   padding-left: 180px;
   height: 400px;
   width: 300px;
   text-align: center;
+  font-family: "Beyond";
+  color: white !important;
 }
 
 
 .form-control {
-  color: red !important;
-  font-size: 24px !important;
+  font-size: 16px !important;
+  font-family: "Beyond";
+  width: 150px;
+}
 
+.questionnaire {
+  width: 100%;
+  height: 80%;
+  background-color: white;
+  opacity: 0.8;
+  padding: 5px;
+  font-family: "Beyond";
+}
+
+
+.userInfo > .form-group {
+  width: 170px !important;
+  font-family: "Beyond";
+}
+
+div.buttons {
+  width: 100% !important;
+  font-family: "Beyond";
+  bottom: 0;
+  float: none;
+  text-align: center !important;
+}
+
+label {
+  font-size: 16px;
+}
+
+.questionDiv {
+  padding: 10px;
+}
+
+.imageUrl {
+  width: 100%;
+  height: 37px;
+}
+
+input.form-control:focus, input[type=text]:focus {
+  box-shadow: inset 0 -2px 0 #fff;
+}
+
+.aboutMe {
+  background-image: url('http://www.clker.com/cliparts/c/a/4/1/1194984950810759386thought_cloud_jon_philli_01.svg.hi.png');
+  background-repeat: no-repeat;
+  text-align: center;
+  width: 546px;
+  height: 595px;
+  font-family: "Beyond";
+  line-height: 30px;
+}
+
+.anotherAbout {
+  font-size: 14px;
+  width: 70%;
+  padding: 10px;
+  padding-left: 30px;
+  position: relative;
+  margin-left: 68px;
+}
+
+.resizeMe {
+  width: 50%;
+}
+
+.userImage {
+  height: 400px;
+  width: 300px;
+  border: 0;
+  outline: none;
 }

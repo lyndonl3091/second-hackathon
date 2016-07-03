@@ -13,48 +13,34 @@
     </div>
   </div>
 </nav>
-<h1>Hi {{currentUser.username}}!</h1>
+<h5>Hi {{currentUser.username}}!</h5>  <button class="btn btn-default" ui-sref='questionnaire'><span class='glyphicon glyphicon-pencil'></span> Take the questionnaire</button> 
 <br/>
 <br/>
 
-<button class="btn btn-success" ui-sref='questionnaire'>Questionnaire</button>
+
 
 <br><br>
 
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 resizeMe">
+    <div class="aboutMe">
+      <div class="anotherAbout">
+      <br><br><br><br>
+      My name is {{currentUser.username}}! My interest and hobbies include {{currentUser.interest}} and {{currentUser.hobbies}}. Speaking of interests, my favorite letter of the MEAN stack is {{currentUser.mean}}. My favorite food is {{currentUser.food}} and my favorite drink is {{currentUser.drink}}. My favorite color is {{currentUser.color}}. I'm a {{currentUser.dayOrNight}} person, and love drinking {{currentUser.teaOrCoffee}}. My starter pokemon would be {{currentUser.pokemon}}. I like using {{currentUser.socialMedia}} on my {{currentUser.phone}} device. I'm an {{currentUser.personality}}. My favorite genres in movie and music are {{currentUser.movie}} and {{currentUser.music}}, respectively. 
+      For my next vacation, I'd like to go to {{currentUser.continent}}. In the case that I'd be arrested, it would probably be associated with {{currentUser.crime}}.
+      </div>
+     </div>
+      
+    </div>
+    <div class="col-lg-4">
+      <img src="{{currentUser.image}}" class="userImage" style="border:none">
+    </div>
+  </div>
+</div>
 
-<table class="table table-striped table-hover "id="top">
-  <tbody>
-    <tr>
-      <td>Interest: {{currentUser.interest}}</td>
-      <td>Hobbies: {{currentUser.hobbies}}</td>
-      <td>Foods: {{currentUser.food}}</td>
-      <td>Colors: {{currentUser.color}}</td>
-    </tr>
-    <tr>
-      <td>Drink: {{currentUser.drink}}</td>
-      <td>Day or night person: {{currentUser.dayOrNight}}</td>
-      <td>Starter pokemon: {{currentUser.pokemon}}</td>
-      <td>Favorite MEAN stack: {{currentUser.mean}}</td>    
-    </tr>
-    <tr>
-      <td>Favorite social media: {{user.socialMedia.selected.socialMedia}}</td>
-      <td>Personality: {{currentUser.personality}}</td>
-      <td>Tea or coffee: {{currentUser.teaOrCoffee}}</td>
-      <td>Phone: {{currentUser.phone}}</td>
-    </tr>
-    <tr>
-      <td>Favorite genre movie: {{currentUser.movie}}</td>
-      <td>Favorite genre music: {{currentUser.music}}</td>
-      <td>Steak cooked?: {{currentUser.steak}}</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Famous: {{currentUser.famous}}</td>
-      <td>Continent: {{currentUser.continent}}</td>
-      <td>Crime: {{currentUser.crime}}</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+
+
+
 </div>
 

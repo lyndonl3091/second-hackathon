@@ -195,6 +195,7 @@ angular.module('myApp')
     let newObj = {
       username: $rootScope.currentUser.username,
       password: $rootScope.currentUser.password,
+      image: $scope.user.image,
       gender: $scope.user.genders.selected,
       interest: $scope.user.interests.selected,
       hobbies: $scope.user.hobbies.selected,
