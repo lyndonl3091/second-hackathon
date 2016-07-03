@@ -1,34 +1,38 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a ui-sref='user' class='glyphicon glyphicon-home'></a></li>
-        <li><a ui-sref='match' class='glyphicon glyphicon-heart'></a></li>
-        <li><a ui-sref='home' ng-click='logOut()'>Logout</a></li>
-      </ul>
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ui-sref='user' class='glyphicon glyphicon-home'></a>
+                </li>
+                <li>
+                    <a ui-sref='match' class='glyphicon glyphicon-heart'></a>
+                </li>
+                <li><a ui-sref='home' ng-click='logOut()'>Logout</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
 
 
 <div class='container'>
-<h1>Matches:</h1>
+    <h1>Matches:</h1>
 
 
-  <div class="containier" id="match">
-  <div ng-repeat='match in matches track by $index'>
-  <img src="{{match.image}}"" class="propertyImage" ng-show='property.image'>
-  <img src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120"/>
-  <div>{{match.username}}</div>
-  </div>
-  </div>
-
-  <div ng-click='selectMatch()'>
-  <button class='btn btn-danger btn-sm' ng-click="findMatch()">Find a match</button>
-  <button class='btn btn-danger btn-sm'><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  <div class='container'>
+        <div class = 'match animated tada' ng-repeat='match in matches track by $index' >
+            <img src="{{match.image}}" class="propertyImage" ng-show='property.image'>
+            <img src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120 "/>
+            <div><h4>{{match.username}}</h4></div>
+  <button class='btn btn-primary' ng-click='selectMatch($index)'>Match! <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></button>
+        </div>
   </div>
 
-  <div class="not-interested col-sm-12">
-    <button ng-click='deleteAll()'>Not Interested</button>
+  <div class='b'>
+  <button class='btn btn-danger btn-sm' ng-click='findMatch()' >Find a match</button>
+
+<!--
+  <div class="not-interested col-sm-12 "> -->
+    <button class='btn btn-danger btn-sm' ng-click='deleteAll()'>Not Interested</button>
   </div>
-</div>
+  <!-- </div> -->

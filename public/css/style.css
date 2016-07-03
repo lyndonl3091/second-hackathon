@@ -163,3 +163,13 @@ input.form-control:focus, input[type=text]:focus {
   border: 0;
   outline: none;
 }
+
+.match {
+  display: inline-block !important;
+  margin: 5px;
+}
+
+.b {
+  display: inline-block !important;
+  margin: 20px;
+}
