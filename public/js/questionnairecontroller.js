@@ -190,9 +190,12 @@ angular.module('myApp')
   }
 
   $scope.userSubmit = () => {
-    User.add($scope.currentUser._id, $scope.user)
+
+    console.log('$scope.user:', $scope.user);
+    User.add($scope.user)
+
       .then(res => {
-        console.log('res.data:', res.data);
+        console.log('res:', res);
       })
       .catch(err => {
         console.log('err:', err);
