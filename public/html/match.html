@@ -6,54 +6,29 @@
         <li><a ui-sref='match' class='glyphicon glyphicon-heart'></a></li>
         <li><a ui-sref='home' ng-click='logOut()'>Logout</a></li>
       </ul>
-
     </div>
   </div>
 </nav>
 
 
-    <div class='container'>
-        <h1>Matches:</h1>
-
-        <div class="col-md-3" ng-click='selectMatch()'>
-          Hello <button class='btn btn-danger btn-sm'><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        </div>
+<div class='container'>
+<h1>Matches:</h1>
 
 
+  <div class="containier" id="match">
+  <div ng-repeat='match in matches track by $index'>
+  <img src="{{match.image}}"" class="propertyImage" ng-show='property.image'>
+  <img src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120"/>
+  <div>{{match.username}}</div>
+  </div>
+  </div>
 
-    <div class="not-interested col-sm-12">
+  <div ng-click='selectMatch()'>
+  <button class='btn btn-danger btn-sm' ng-click="findMatch()">Find a match</button>
+  <button class='btn btn-danger btn-sm'><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  </div>
 
-      <button ng-click='deleteAll()'>Not Interested</button>
-    </div>
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <div class="not-interested col-sm-12">
+    <button ng-click='deleteAll()'>Not Interested</button>
+  </div>
+</div>
