@@ -45,9 +45,18 @@ angular.module('myApp')
 
 
   $scope.userSubmit = () => {
+    $rootScope.user = $scope.user;
+    console.log('$scope.user', $scope.user);
     User.register($scope.user)
       .then(res => {
         console.log('res:', res);
+        User.login($scope.user)
+          .then(res => {
+            console.log('res:', res);
+          })
+          .catch(err => {
+            console.log('err:', err);
+          })
         $state.go('user');
       })
       .catch(err => {
