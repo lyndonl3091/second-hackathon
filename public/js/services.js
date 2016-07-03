@@ -33,13 +33,13 @@ angular.module('myApp')
   }
 
 
-  this.add = user => $http.put('/api/users/question', user)
-    .then(res=> {
-      console.log('res in services!!', res);
-    })
-    .catch(err => {
-      console.log('err:', err);
-    })
+  // this.add = user => $http.put('/api/users/question', user)
+  //   .then(res=> {
+  //     console.log('res in services!!', res);
+  //   })
+  //   .catch(err => {
+  //     console.log('err:', err);
+  //   })
 
 
 
@@ -48,7 +48,7 @@ angular.module('myApp')
   this.add = (id,user) =>
   {
     console.log('user:', user);
-    return $http.put('/api/users/' + id, user )
+    return $http.post(`/api/users/${id}`, user )
 }
 
 
