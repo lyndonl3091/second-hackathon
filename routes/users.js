@@ -6,35 +6,29 @@ const User = require('../models/user');
 let router = express.Router();
 
 
-router.use((req, res, next) => {
-  console.log('************************')
-  console.log('req.body:', req.body);
-  console.log('req.method:', req.method);
-  console.log('req.url:', req.url);
-  console.log('************************')
-  next();
-})
+// router.use((req, res, next) => {
+//   console.log('************************')
+//   console.log('req.body:', req.body);
+//   console.log('req.method:', req.method);
+//   console.log('req.url:', req.url);
+//   console.log('************************')
+//   next();
+// })
 
 router.get('/', (req, res) => {
-
-  console.log('req.cookies:', req.cookies);
   User.find({}, (err, users) => {
       if (err) return res.status(400).send(err);
       res.send(users);
-      console.log('users in get route', users);
   })
 
 });
 router.get('/getMatch', User.authMiddleware,(req, res) => {
-  console.log('req.user', req.user);
   let user = req.user;
     User.find({'_id': {$ne: user._id}, 'gender': {$ne: user.gender}}, (err, match) => {
-      console.log('match:', match);
       let matchArr = [];
 
       for(let key in match) {
         let matchCount = 0;
-        console.log('match[key].username:', match[key].username);
         if(match[key].dayOrNight === user.dayOrNight) {
           matchCount++
         }
@@ -90,9 +84,6 @@ router.get('/getMatch', User.authMiddleware,(req, res) => {
         if(matchCount >= 5) {
           matchArr.push(match[key])
         };
-
-
-        console.log('matchCount:', matchCount);
       }
       res.send(matchArr);
     })
@@ -111,8 +102,6 @@ router.get('/getMatch', User.authMiddleware,(req, res) => {
 
 // getUser route
 router.get('/getUser', User.authMiddleware, (req, res) => {
-  console.log('req.user', req.user);
-
   res.send(req.user);
 })
 
@@ -128,11 +117,9 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  console.log('req.body', req.body);
     User.authenticate(req.body, (err, token) => {
       if(err) return res.status(400).send(err);
 
-      console.log('token,', token);
       res.cookie('authtoken', token).send(token);
 
     });
@@ -141,7 +128,6 @@ router.post('/login', (req, res) => {
 router.post('/loginnow', (req, res) => {
   User.sendId(req.body, (err, user) => {
     res.status(err ? 400 : 200).send(err || user);
-    console.log('user in users!:', user);
   })
 })
 
@@ -151,12 +137,28 @@ router.post('/logout', (req, res) => {
 
 
 
-//// ----------------------------\\\\\
 
 router.route('/:id')
   .get((req, res) => {
     User.findById(req.params.id, (err, user) => {
       res.status(err ? 400: 200).send(err || user);
+    });
+  })
+
+  // .put(User.authMiddleware, (req, res) => {
+  //   let user = req.user;
+  //   console.log('put user:', user);
+  //   User.findByIdAndUpdate(user._id, req.body, {new: true},  (err, newUser) => {
+  //     console.log('req.body:', req.body);
+  //     res.status(err ? 400: 200).send(err || newUser);
+  //   });
+  // })
+  .post(User.authMiddleware, (req, res) => {
+    let user = req.user;
+    console.log('put user:', user);
+    User.findByIdAndUpdate(user._id, req.body, {new: true},  (err, newUser) => {
+      console.log('req.body:', req.body);
+      res.status(err ? 400: 200).send(err || newUser);
     });
   })
   .delete((req, res) => {
@@ -177,5 +179,6 @@ router.route('/:id')
       res.status(err ? 400 : 200).send(err || user);
     });
   });
+
 
 module.exports = router;
