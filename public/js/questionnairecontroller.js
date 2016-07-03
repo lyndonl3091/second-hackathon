@@ -190,10 +190,19 @@ angular.module('myApp')
   }
 
   $scope.userSubmit = () => {
-console.log('$scope.user in usersubmit:', $scope.user);
-    User.add($scope.user)
+  console.log('$scope.user in usersubmit:', $scope.user);
+    $rootScope.currentUser.user = $scope.user;
+    console.log('$rootScope.currentUser._id:', $rootScope.currentUser._id);
+    User.add($rootScope.currentUser._id, $rootScope.currentUser.user)
       .then(res => {
-        console.log('res in usersubmit:', res.data);
+        console.log('res in usersubmit:', res);
+        // User.getUser()
+        // .then(res => {
+        //   $rootScope.currentUser.user = res.data;
+        // })
+        // .catch(err => {
+        //   console.log('err:', err);
+        // })
         // User.getItems()
         //   .then(res => {
         //     console.log('res in usersubmit embed:', res.data);
@@ -201,10 +210,12 @@ console.log('$scope.user in usersubmit:', $scope.user);
         //   .catch(err => {
         //     console.log('err:', err);
         //   })
+
       })
       .catch(err => {
         console.log('err:', err);
       })
+      debugger;
 
     // console.log('$scope.user:', $scope.user);
     // User.add($scope.user)

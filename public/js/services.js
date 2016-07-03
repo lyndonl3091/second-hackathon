@@ -41,24 +41,22 @@ angular.module('myApp')
     })
 
 
-  this.add = user => $http.post('/api/users/question', user)
-    .then(res=> {
-      console.log('res in services!!', res);
-    })
-    .catch(err => {
-      console.log('err:', err);
-    })
-
-
-
-
-
-  this.add = (id,user) =>
-  {
-    console.log('user:', user);
-    return $http.put('/api/users/' + id, user )
-}
-
+  this.add = (id, user) => $http.put(`/api/users/${id}`, user);
+    // .then(res=> {
+    //   console.log('id:', id);
+    //   console.log('user:', user);
+    //   console.log('res in services!!', res);
+    //   // this.getUser()
+    //   //   .then(res => {
+    //   //     $rootScope.currentUser = res.data;
+    //   //   })
+    //   //   .catch(err => {
+    //   //     console.log('err:', err);
+    //   //   })
+    // })
+    // .catch(err => {
+    //   console.log('err:', err);
+    // })
 
   this.logout = () => $http.post('/api/users/logout');
 

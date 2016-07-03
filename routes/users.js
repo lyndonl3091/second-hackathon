@@ -170,16 +170,16 @@ router.route('/:id')
       res.status(err ? 400: 200).send(err || user);
     });
   })
-  .put((req, res) => {
-    User.findByIdAndUpdate(req.params.id, (err, user) => {
-      res.status(err ? 400: 200).send(err || user);
-    });
-  })
   .delete((req, res) => {
     User.findByIdAndRemove(req.params.id, (err, user) => {
       res.status(err ? 400: 200).send(err || user);
     });
   })
+  .put(User.authMiddleware, (req, res) => {
+   User.findByIdAndUpdate(req.user._id, req.body,  (err, newUser) => {
+     res.status(err ? 400: 200).send(err || newUser);
+   })
+ })
   .post((req, res) => {
     User.create(req.params.id, (err, user) => {
       res.status(err ? 400 : 200).send(err || user);
