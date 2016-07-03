@@ -77,7 +77,10 @@ form {
   width: 300px;
   text-align: center;
 }
+
+
 .form-control {
   color: red !important;
   font-size: 24px !important;
+
 }
