@@ -144,7 +144,7 @@ router.route('/:id')
       res.status(err ? 400: 200).send(err || user);
     });
   })
-<<<<<<< HEAD
+
   // .put(User.authMiddleware, (req, res) => {
   //   let user = req.user;
   //   console.log('put user:', user);
