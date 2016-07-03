@@ -48,6 +48,7 @@ angular.module('myApp')
     User.register($scope.user)
       .then(res => {
         console.log('res:', res);
+        $state.go('user');
       })
       .catch(err => {
         console.log('err:', err);

@@ -105,6 +105,11 @@ router.get('/getUser', User.authMiddleware, (req, res) => {
   res.send(req.user);
 })
 
+
+router.get('/getItems', User.authMiddleware, (req, res) => {
+  console.log('req in getitems:', req);
+})
+
 router.post('/register', (req, res) => {
     User.register(req.body, err => {
         res.status(err ? 400 : 200).send(err);
@@ -131,12 +136,15 @@ router.post('/logout', (req, res) => {
 })
 
 
+
+
 router.route('/:id')
   .get((req, res) => {
     User.findById(req.params.id, (err, user) => {
       res.status(err ? 400: 200).send(err || user);
     });
   })
+<<<<<<< HEAD
   // .put(User.authMiddleware, (req, res) => {
   //   let user = req.user;
   //   console.log('put user:', user);
@@ -153,15 +161,21 @@ router.route('/:id')
       res.status(err ? 400: 200).send(err || newUser);
     });
   })
-  // .delete((req, res) => {
-  //   User.findByIdAndRemove(req.params.id, (err, user) => {
-  //     res.status(err ? 400: 200).send(err || user);
-  //   });
-  // })
-  // .post((req, res) => {
-  //   User.create(req.params.id, (err, user) => {
-  //     res.status(err ? 400 : 200).send(err || user);
-  //   });
-  // });
+  .delete((req, res) => {
+    User.findByIdAndRemove(req.params.id, (err, user) => {
+      res.status(err ? 400: 200).send(err || user);
+    });
+  })
+  .put(User.authMiddleware, (req, res) => {
+   User.findByIdAndUpdate(req.user._id, req.body,  (err, newUser) => {
+     res.status(err ? 400: 200).send(err || newUser);
+   })
+ })
+  .post((req, res) => {
+    User.create(req.params.id, (err, user) => {
+      res.status(err ? 400 : 200).send(err || user);
+    });
+  });
+
 
 module.exports = router;

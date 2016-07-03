@@ -190,15 +190,56 @@ angular.module('myApp')
   }
 
   $scope.userSubmit = () => {
+
     console.log('rootScope Current:', $rootScope.currentUser);
     User.add($rootScope.currentUser._id, $rootScope.currentUser)
       .then(res => {
         console.log('res.data:', res.data);
+
+  // console.log('$scope.user in usersubmit:', $scope.user);
+  //   $rootScope.currentUser.user = $scope.user;
+  //   console.log('$rootScope.currentUser._id:', $rootScope.currentUser._id);
+  //   User.add($rootScope.currentUser._id, $rootScope.currentUser.user)
+  //     .then(res => {
+  //       console.log('res in usersubmit:', res);
+        // User.getUser()
+        // .then(res => {
+        //   $rootScope.currentUser.user = res.data;
+        // })
+        // .catch(err => {
+        //   console.log('err:', err);
+        // })
+        // User.getItems()
+        //   .then(res => {
+        //     console.log('res in usersubmit embed:', res.data);
+        //   })
+        //   .catch(err => {
+        //     console.log('err:', err);
+        //   })
+
+
       })
       .catch(err => {
         console.log('err:', err);
       })
+
     User.getUser();
+
+
+
+    // console.log('$scope.user:', $scope.user);
+    // User.add($scope.user)
+
+    //   .then(res => {
+    //     console.log('res:', res);
+    //   })
+    //   .catch(err => {
+    //     console.log('err:', err);
+    //   })
+    // console.log('$scope.user', $scope.user);
+    // User.getUser();
+    // console.log('$scope.user', $scope.currentUser);
+
     $state.go('user');
   }
 
