@@ -191,10 +191,13 @@ angular.module('myApp')
 
   $scope.userSubmit = () => {
 
-    console.log('rootScope Current:', $rootScope.currentUser);
+  console.log('$scope.user in usersubmit:', $scope.user);
+    $rootScope.currentUser.user = $scope.user;
+    console.log('$rootScope.currentUser._id:', $rootScope.currentUser._id);
+
     User.add($rootScope.currentUser._id, $rootScope.currentUser)
       .then(res => {
-        console.log('res.data:', res.data);
+        console.log('res:', res);
 
   // console.log('$scope.user in usersubmit:', $scope.user);
   //   $rootScope.currentUser.user = $scope.user;
@@ -223,7 +226,9 @@ angular.module('myApp')
         console.log('err:', err);
       })
 
-    User.getUser();
+
+    // User.getUser();
+
 
 
 

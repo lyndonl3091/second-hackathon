@@ -166,10 +166,13 @@ router.route('/:id')
       res.status(err ? 400: 200).send(err || user);
     });
   })
-  .put(User.authMiddleware, (req, res) => {
-   User.findByIdAndUpdate(req.user._id, req.body,  (err, newUser) => {
+  .post(User.authMiddleware, (req, res) => {
+    let user = req.user;
+   User.findByIdAndUpdate(user._id, req.body, {new: true}, (err, newUser) => {
+    console.log('req.body', req.body);
      res.status(err ? 400: 200).send(err || newUser);
    })
+   // User.save()
  })
   .post((req, res) => {
     User.create(req.params.id, (err, user) => {
