@@ -35,7 +35,11 @@ angular.module('myApp')
 
 
 
-  this.add = user => $http.post('/api/users/question', user);
+  this.add = (id,user) =>
+  {
+    console.log('user:', user);
+    return $http.put('/api/users/' + id, user )
+}
 
 
   this.logout = () => $http.post('/api/users/logout');

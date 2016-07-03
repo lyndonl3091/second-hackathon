@@ -6,6 +6,14 @@ const User = require('../models/user');
 let router = express.Router();
 
 
+router.use((req, res, next) => {
+  console.log('************************')
+  console.log('req.body:', req.body);
+  console.log('req.method:', req.method);
+  console.log('req.url:', req.url);
+  console.log('************************')
+  next();
+})
 
 router.get('/', (req, res) => {
 
@@ -136,16 +144,16 @@ router.post('/logout', (req, res) => {
   res.clearCookie('authtoken').send();
 })
 
-router.post('/question', User.authMiddleware, (req, res) => {
-  let user = req.user;
-  console.log('put user:', user);
-  console.log('req.body:', req.body);
-
-  User.findByIdAndUpdate(user._id, req.body, (err, newUser )=> {
-    res.status(err ? 400: 200).send(err || newUser)
-  })
-
-})
+// router.put('/question', User.authMiddleware, (req, res) => {
+//   let user = req.user;
+//   console.log('put user:', user);
+//   console.log('req.body:', req.body);
+//
+//   User.findByIdAndUpdate(user._id, req.body, (err, newUser )=> {
+//     res.status(err ? 400: 200).send(err || newUser)
+//   })
+//
+// })
 
 //// ----------------------------\\\\\
 

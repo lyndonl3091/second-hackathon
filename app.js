@@ -38,6 +38,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //// ROUTERS ////
 
+
+
+
+
 app.use('/api', require('./routes/api'))
 
 /////////////////
