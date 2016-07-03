@@ -85,6 +85,7 @@ router.get('/getMatch', User.authMiddleware,(req, res) => {
           matchArr.push(match[key])
         }
       }
+
       res.send(matchArr);
     })
     // .and('_id': {$ne: user._id}, 'gender': {$ne: user.gender})
