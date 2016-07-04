@@ -173,3 +173,8 @@ input.form-control:focus, input[type=text]:focus {
   display: inline-block !important;
   margin: 20px;
 }
+
+.propertyImage {
+  height: 200px;
+  width: 200px;
+}
