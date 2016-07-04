@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('myApp', ['ui.router', 'ngStorage'])
+var app = angular.module('myApp', ['ui.router', 'ngStorage']);
 
 
 app.run(function(User) {

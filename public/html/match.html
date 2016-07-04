@@ -21,8 +21,8 @@
 
   <div class='container'>
         <div class = 'match animated tada' ng-repeat='match in matches track by $index' >
-            <img src="{{match.image}}" class="propertyImage" ng-show='property.image'>
-            <img src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120 "/>
+            <img src="{{match.image}}" class="propertyImage" ng-show='match.image'>
+      
             <div><h4>{{match.username}}</h4></div>
   <button class='btn btn-primary' ng-click='selectMatch($index)'>Match! <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></button>
         </div>

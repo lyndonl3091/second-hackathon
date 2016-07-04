@@ -9,6 +9,14 @@ angular.module('myApp')
 
   // console.log('sessionStorage:', )
   console.log('questionnaireController!');
+
+  $scope.mygender = {
+    options: [
+      'Female',
+      'Male'
+    ]
+  }
+
   $scope.genders = {
     options: [
       'Female',
@@ -197,6 +205,7 @@ angular.module('myApp')
       password: $rootScope.currentUser.password,
       image: $scope.user.image,
       gender: $scope.user.genders.selected,
+      mygender: $scope.user.mygender.selected,
       interest: $scope.user.interests.selected,
       hobbies: $scope.user.hobbies.selected,
       food: $scope.user.foods.selected,

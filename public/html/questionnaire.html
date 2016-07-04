@@ -4,15 +4,20 @@
     <h4>Enter your information so we can find you a match! <span class='glyphicon glyphicon-heart'></span></h4>
     <form ng-submit="userSubmit()">
       <div class="form-group">
+            <div class="form-group">
+              <!-- <label for="focusedInput" class="control-label">Picture of yourself:</label> -->
+              <input type="text" placeholder='URL of photo of yourself here' ng-model='user.image' class = 'imageUrl' required>
+            </div>
 
         <div class="container">
           <div class="row">
             <div class="col-lg-6 questionDiv" style='width: 550px'>
-            <div class="form-group">
-              <label for="focusedInput" class="control-label">Picture of yourself:</label>
-              <input type="text" placeholder='URL here' ng-model='user.image' class = 'imageUrl' required>
-            </div>
-
+            <div class='form-group'>
+                <label class="control-label" for="focusedInput">Your gender</label>
+                <select class="form-control" id="select" ng-model='user.mygender.selected' ng-options='t as t for t in mygender.options' required>
+                  <option value=""></option> 
+                </select>      
+              </div>
 
             <div class='form-group'>
                 <label class="control-label" for="focusedInput">Who are you looking for?</label>

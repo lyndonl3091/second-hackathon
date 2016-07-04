@@ -9,6 +9,7 @@ let userSchema = new mongoose.Schema({
   username: {type: String, required: true},
   password: {type: String, required: true},
   image: {data: Buffer, contentType: String},
+  mygender: {type:String},
   gender: {type: String},
   interest: {type: String},
   hobbies: {type: String},
