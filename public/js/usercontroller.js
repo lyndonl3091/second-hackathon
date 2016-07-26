@@ -8,27 +8,23 @@ angular.module('myApp')
   User.getUser();
 
 
-
-  console.log('$rootScope.currentUser', $rootScope.currentUser);
-
   // console.log('$scope.user,' $scope.user);
 
   $scope.logOut = () => {
     User.logout()
         .then(res => {
-          console.log('res:', res);
         })
         .catch(err => {
-          console.log('err in logoutcontroller:', err);
-        })   
-  }
+          swal("Error logging out")
+        });
+  };
 
 
-})
+});
 
 
 .filter('capitalize', function() {
     return function(input) {
       return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
-    }
+    };
 });

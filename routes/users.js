@@ -86,21 +86,12 @@ router.get('/getMatch', User.authMiddleware,(req, res) => {
               matchArr.push(match[key])
             }
           }
-        
+
       }
 
 
       res.send(matchArr);
     })
-    // .and('_id': {$ne: user._id}, 'gender': {$ne: user.gender})
-    // .and([
-    //   {$or: [{'_id': {$ne: user._id}, 'gender': {$ne: user.gender}, 'dayOrNight': user.dayOrNight, 'teaOrCoffee': user.teaOrCoffee}]},
-    //   {$or: [{'_id': {$ne: user._id}, 'gender': {$ne: user.gender}, 'dayOrNight': user.dayOrNight, 'teaOrCoffee': {$ne: user.teaOrCoffee}}]}
-    // ])
-    // .exec((err, match) => {
-    //   console.log('match:', match);
-    //   res.send(match)
-    // })
 
 })
 

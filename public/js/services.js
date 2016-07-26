@@ -32,55 +32,13 @@ angular.module('myApp')
 
   }
 
-
-  // this.add = user => $http.put('/api/users/question', user)
-  //   .then(res=> {
-  //     console.log('res in services!!', res);
-  //   })
-  //   .catch(err => {
-  //     console.log('err:', err);
-  //   })
-
-
-
-
-
-
-
   this.add = (id, user) => $http.post(`/api/users/${id}`, user)
     .then(res=> {
-      console.log('id:', id);
-      console.log('user:', user);
-      console.log('res in services!!', res);
-      // this.getUser()
-      //   .then(res => {
-      //     $rootScope.currentUser = res.data;
-      //   })
-      //   .catch(err => {
-      //     console.log('err:', err);
-      //   })
+
     })
     .catch(err => {
       console.log('err:', err);
     })
-
-  // this.add = (id, user) => $http.put(`/api/users/${id}`, user);
-    // .then(res=> {
-    //   console.log('id:', id);
-    //   console.log('user:', user);
-    //   console.log('res in services!!', res);
-    //   // this.getUser()
-    //   //   .then(res => {
-    //   //     $rootScope.currentUser = res.data;
-    //   //   })
-    //   //   .catch(err => {
-    //   //     console.log('err:', err);
-    //   //   })
-    // })
-    // .catch(err => {
-    //   console.log('err:', err);
-    // })
-
 
 
   this.logout = () => $http.post('/api/users/logout');
@@ -94,24 +52,3 @@ angular.module('myApp')
 
 
 })
-
-// .service('Match', function($http, $q) {
-//
-//   this.getOne = id => {
-//
-//   }
-//
-//   this.getAll = () => {
-//
-//   }
-//
-//   this.removeOne = id => {
-//
-//   }
-//
-//   this.removeAll = () => {
-//
-//   }
-//
-//
-// })
